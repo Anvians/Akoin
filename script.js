@@ -1,4 +1,3 @@
-// 1. Sticky Navigation Scroll Effect
 const nav = document.querySelector('.sticky-nav');
 window.addEventListener('scroll', () => {
     if (window.scrollY > 50) {
@@ -10,9 +9,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// 2. Smooth Scrolling for Navigation Links
-// (Note: CSS 'scroll-behavior: smooth' handles the animation, 
-// but this JS ensures it works even in older browsers.)
+
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -22,13 +19,11 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// 3. Simple Form Handling
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
         e.preventDefault();
         
-        // Basic feedback to the user
         const btn = contactForm.querySelector('button');
         const originalText = btn.innerText;
         
