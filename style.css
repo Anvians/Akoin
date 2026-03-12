@@ -1,0 +1,143 @@
+/* 1. Variables & Reset */
+:root {
+    --primary-orange: #FF5722;
+    --dark-black: #121212;
+    --pure-white: #FFFFFF;
+    --light-gray: #F4F4F4;
+    --font-main: 'Inter', sans-serif;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-box: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Smooth scrolling requirement [cite: 17] */
+}
+
+body {
+    font-family: var(--font-main);
+    line-height: 1.6;
+    color: var(--dark-black);
+    background-color: var(--pure-white);
+}
+
+/* 2. Layout Containers */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section {
+    padding: 5rem 0;
+}
+
+.bg-light { background-color: var(--light-gray); }
+.bg-dark { background-color: var(--dark-black); color: var(--pure-white); }
+
+/* 3. Sticky Navigation [cite: 17] */
+.sticky-nav {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.logo img { height: 60px; } /* Legible at small sizes [cite: 5] */
+
+.sticky-nav ul {
+    display: flex;
+    list-style: none;
+}
+
+.sticky-nav ul li a {
+    text-decoration: none;
+    color: var(--dark-black);
+    font-weight: 600;
+    margin-left: 2rem;
+    transition: var(--transition);
+}
+
+.sticky-nav ul li a:hover { color: var(--primary-orange); } /* Hover states  */
+
+/* 4. Hero Section [cite: 8] */
+.hero {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('assets/hero-bg.jpg') no-repeat center center/cover;
+    color: var(--pure-white);
+}
+
+.hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+.hero p { font-size: 1.2rem; margin-bottom: 2rem; max-width: 700px; }
+
+.cta-button {
+    display: inline-block;
+    padding: 1rem 2.5rem;
+    background-color: var(--primary-orange);
+    color: var(--pure-white);
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    background-color: #e64a19;
+    transform: translateY(-2px);
+}
+
+/* 5. Service Pillars Grid [cite: 11, 16] */
+.grid-pillars {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.card {
+    background: var(--pure-white);
+    padding: 2rem;
+    border-radius: 8px;
+    border-top: 5px solid var(--primary-orange);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+/* 6. Contact Form [cite: 15] */
+#contact-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    margin: 2rem auto 0;
+}
+
+#contact-form input, #contact-form textarea {
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border: 1px solid #444;
+    background: #222;
+    color: white;
+    border-radius: 4px;
+}
+
+/* 7. Responsive Mobile Adjustments  */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .sticky-nav ul { display: none; } /* Simplified for this vanilla build */
+}
